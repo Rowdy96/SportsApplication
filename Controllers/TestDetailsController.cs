@@ -29,6 +29,7 @@ namespace SportsApp.Controllers
                          join tr in _context.TestDetails
                          on t.TestId equals tr.TestId
                          where tr.TestId.Equals(id)
+                         orderby tr.Distance descending
                          select new TestDetails
                          {
                              AthleteId = tr.AthleteId,
