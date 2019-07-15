@@ -3,51 +3,54 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-    <div class="col-md-4">
+<script type="text/javascript">
+    function Click(id){
+         var url = '@Url.Action("Index","TestDetails",new { id = "_id_"})';
+         window.location.href = url.replace('_id_',id);
+    }
+</script>
+    <div class="col-md-2">
 
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-8">
         
             <a asp-action="Create" class="btn btn-default ">Create New</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Date)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumOfParticipants)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TestType)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr onclick="Click(@item.TestId)">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumOfParticipants)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TestType)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
         
     </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
 
     </div>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NumOfParticipants)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TestType)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        
-    <tr >
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumOfParticipants)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TestType)
-            </td>
-            <td>
-                <a asp-controller="TestDetails" asp-action="Index" asp-route-id="@item.TestId">Edit</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+

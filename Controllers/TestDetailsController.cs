@@ -53,7 +53,7 @@ namespace SportsApp.Controllers
        // GET: TestDetails/Create
         public IActionResult Create(int? id)
         {
-          
+            ViewData["id"] = id;
             return View();
         }
 

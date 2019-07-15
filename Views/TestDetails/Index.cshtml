@@ -2,66 +2,71 @@
 
 @{
     ViewData["Title"] = "Test Details";
-    
+
 }
+<script type="text/javascript">
+    function Edit(id){
+       window.location.href = '@Url.Action("Edit","TestDetails")/'+ id;
+    }
+</script>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+        <h3> @ViewData["TestType"].ToString().ToUpper()  D.  @ViewData["TestDate"]</h3>
 
-<h2> @ViewData["TestType"].ToString().ToUpper()  D.  @ViewData["TestDate"]</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
+                    </th>
+                    <th>
+                        Ranking
+                    </th>
+                    <th>
+                        Distance
+                    </th>
+                    <th>
+                        Fitness Ranking
+                    </th>
 
-            </th>
-            <th>
-                Ranking
-            </th>
-            <th>
-                Distance
-            </th>
-            <th>
-                Fitness Ranking
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-    
+                </tr>
+            </thead>
+            <tbody>
 
-        @foreach (var item in Model)
-        {
 
-            <tr>
-                <td>
-                    @(Model.IndexOf(item)+1)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AthleteName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Distance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MyProperty)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.AthleteId">Edit</a>
-                </td>
-                    
-            </tr>
-        }
-    </tbody>
-</table>
+                @foreach (var item in Model)
+                {
 
-<p>
-    <a asp-action="Create" class="btn btn-default" asp-route-id=@ViewData["testid"]>ADD NEW ATHLETE TO TEST</a>
-  
+                    <tr onclick="Edit(@item.AthleteId)">
+                        <td>
+                            @(Model.IndexOf(item) + 1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AthleteName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Distance)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MyProperty)
+                        </td>
+                    </tr>
+                }
+            </tbody>
 
-</p>
-<p>
-    <a asp-controller="Tests" asp-action="Delete" class="btn btn-default" asp-route-id=@ViewData["testid"]>DELETE TEST</a>
-</p>
+        </table>
+        <p>(Click on the player to chage the data)</p>
+        <p>
+            <a asp-action="Create" class="btn btn-default" asp-route-id=@ViewData["testid"]>ADD NEW ATHLETE TO TEST</a>
 
-<div>
-    <a  asp-controller="Tests" asp-action="Index" >Back to Test List</a>
+        </p>
+        <p>
+            <a asp-controller="Tests" asp-action="Delete" class="btn btn-default" asp-route-id=@ViewData["testid"]>DELETE TEST</a>
+        </p>
+
+        <div>
+            <a asp-controller="Tests" asp-action="Index">Back to Test List</a>
+        </div>
 </div>
+
+<div class="col-md-2"></div>
