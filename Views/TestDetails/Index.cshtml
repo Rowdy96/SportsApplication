@@ -5,11 +5,14 @@
     
 }
 
-<h2> @ViewData["TestType"].ToString().ToUpper()  D.  @ViewData["TestDate"].ToString()</h2>
+<h2> @ViewData["TestType"].ToString().ToUpper()  D.  @ViewData["TestDate"]</h2>
 
 <table class="table">
     <thead>
         <tr>
+            <th>
+
+            </th>
             <th>
                 Ranking
             </th>
@@ -27,8 +30,11 @@
 
         @foreach (var item in Model)
         {
-            
+
             <tr>
+                <td>
+                    @(Model.IndexOf(item)+1)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.AthleteName)
                 </td>

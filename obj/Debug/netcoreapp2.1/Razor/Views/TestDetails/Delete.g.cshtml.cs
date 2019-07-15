@@ -69,12 +69,12 @@ using SportsApp.Models;
             WriteLiteral("\r\n<h2>CONFIRM</h2>\r\n<div>\r\n    <h4>Do you want to delete this athlete from the test?</h4>\r\n    <hr />\r\n    ");
             EndContext();
             BeginContext(188, 255, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "772d5bac2c74478c827ee39b9d63b168", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f48e907cfa144b03a3ca89b721c0e66a", async() => {
                 BeginContext(214, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(224, 43, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "f0efbea61a0a48049660fec2f35185d5", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "a6deb158905b49a99b588d73d798d370", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -99,7 +99,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(277, 81, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1c4ee31b3cac4d05870f8845e2d82eed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1a2409aeb1cd45828404c5f40248a107", async() => {
                     BeginContext(352, 2, true);
                     WriteLiteral("No");
                     EndContext();

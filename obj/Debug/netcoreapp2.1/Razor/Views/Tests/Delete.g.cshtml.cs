@@ -69,12 +69,12 @@ using SportsApp.Models;
             WriteLiteral("\r\n<h2>CONFIRM</h2>\r\n<div>\r\n    <h4>Do you want to delete this test?</h4>\r\n    <hr />\r\n    ");
             EndContext();
             BeginContext(164, 223, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ace74b92eac4a7cb7f7f421675b35f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "19691133ec9d4791a616b777f98bd5f9", async() => {
                 BeginContext(190, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(200, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "029794029be149438786e686096a8b4e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "85fa8340f20c450dbe06d45b2675fd82", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -99,7 +99,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(250, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c121eb9dd4ad40729fe2009651f75ff2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7c16dc59fac844228eebb241ca6b01aa", async() => {
                     BeginContext(296, 2, true);
                     WriteLiteral("No");
                     EndContext();

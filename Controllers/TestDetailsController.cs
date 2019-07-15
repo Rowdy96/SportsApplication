@@ -22,9 +22,11 @@ namespace SportsApp.Controllers
         public async Task<IActionResult> Index(int? id)
         {
             var testItem = await _context.Test.SingleOrDefaultAsync(m => m.TestId == id);
+
             ViewData["testid"] = id;
-            ViewData["TestDate"] = testItem.Date;
+            ViewData["TestDate"] = testItem.Date.ToShortDateString();
             ViewData["TestType"] = testItem.TestType;
+
             var result = from t in _context.Test
                          join tr in _context.TestDetails
                          on t.TestId equals tr.TestId

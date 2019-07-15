@@ -66,7 +66,7 @@ using SportsApp.Models;
             WriteLiteral("\r\n    <div class=\"col-md-4\">\r\n\r\n    </div>\r\n\r\n    <div class=\"col-md-4\">\r\n        \r\n            ");
             EndContext();
             BeginContext(182, 62, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0c80bdbc6e9c40fab94c45bff07f8eb4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5cb2499000b34b5682d2589e304157e2", async() => {
                 BeginContext(230, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -158,7 +158,7 @@ using SportsApp.Models;
             WriteLiteral("\r\n            </td>\r\n            <td>\r\n                ");
             EndContext();
             BeginContext(1121, 87, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d222cbee72c84088a70698b899d4a76e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "26a58da536d2418c877ca01030cea8a9", async() => {
                 BeginContext(1200, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
