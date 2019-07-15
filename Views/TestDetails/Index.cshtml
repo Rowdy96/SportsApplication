@@ -1,0 +1,61 @@
+﻿@model List<SportsApp.Models.TestDetails>
+
+@{
+    ViewData["Title"] = "Test Details";
+    
+}
+
+<h2> @ViewData["TestType"].ToString().ToUpper()  D.  @ViewData["TestDate"].ToString()</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ranking
+            </th>
+            <th>
+                Distance
+            </th>
+            <th>
+                Fitness Ranking
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    
+
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AthleteName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MyProperty)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AthleteId">Edit</a>
+                </td>
+                    
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-default" asp-route-id=@ViewData["testid"]>ADD NEW ATHLETE TO TEST</a>
+  
+
+</p>
+<p>
+    <a asp-controller="Tests" asp-action="Delete" class="btn btn-default" asp-route-id=@ViewData["testid"]>DELETE TEST</a>
+</p>
+
+<div>
+    <a  asp-controller="Tests" asp-action="Index" >Back to Test List</a>
+</div>

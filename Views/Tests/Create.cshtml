@@ -1,0 +1,49 @@
+﻿@model SportsApp.Models.Test
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <h2>Create New Test</h2>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="TestType" class="control-label"></label>
+                <select asp-for="TestType" class="form-control">
+                    <option value="Cooper test">Cooper Test</option>
+                    <option value="Sprint test">100 Meter Sprint test</option>
+                </select>
+                <span asp-validation-for="TestType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create Test" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

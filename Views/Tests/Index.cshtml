@@ -1,0 +1,53 @@
+﻿@model IEnumerable<SportsApp.Models.Test>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="col-md-4">
+
+    </div>
+
+    <div class="col-md-4">
+        
+            <a asp-action="Create" class="btn btn-default ">Create New</a>
+        
+    </div>
+      <div class="col-md-4">
+
+    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumOfParticipants)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        
+    <tr >
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumOfParticipants)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TestType)
+            </td>
+            <td>
+                <a asp-controller="TestDetails" asp-action="Index" asp-route-id="@item.TestId">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
