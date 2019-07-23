@@ -5,47 +5,28 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using SportsApp.IRepositaries;
 using SportsApp.Models;
 
 namespace SportsApp.Controllers
 {
     public class TestDetailsController : Controller
     {
-        private readonly SportsAppContext _context;
-
-        public TestDetailsController(SportsAppContext context)
+        private IUnitOfWork _unitOfWork;
+        public TestDetailsController(IUnitOfWork unitOfWork)
         {
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
         // GET: TestDetails
         public async Task<IActionResult> Index(int? id)
         {
-            var testItem = await _context.Test.SingleOrDefaultAsync(m => m.TestId == id);
-
+            var testItem = await _unitOfWork.testRepositaries.GetAllTests().SingleOrDefaultAsync(m => m.TestId == id);
             ViewData["testid"] = id;
             ViewData["TestDate"] = testItem.Date.ToShortDateString();
             ViewData["TestType"] = testItem.TestType;
 
-            var result = from t in _context.Test
-                         join tr in _context.TestDetails
-                         on t.TestId equals tr.TestId
-                         where tr.TestId.Equals(id)
-                         orderby tr.Distance descending
-                         select new TestDetails
-                         {
-                             AthleteId = tr.AthleteId,
-                             AthleteName = tr.AthleteName,
-                             Distance = tr.Distance,
-                             MyProperty = tr.MyProperty,
-                             TestId = tr.TestId,
-                            
-                         };
-           
-                         
-            var tmp = await result.ToListAsync();
-           
-          
+            var tmp = await _unitOfWork.testDetailsRepo.GetAllTestDetails(id).ToListAsync();
             return View(tmp);
            
         }
@@ -66,15 +47,9 @@ namespace SportsApp.Controllers
 
             if (ModelState.IsValid)
             {
-
-                testDetails.MyProperty = this.checkFitness(testDetails.Distance);
-
-                _context.Add(testDetails);
-                await _context.SaveChangesAsync();
- 
+                await _unitOfWork.testDetailsRepo.InsertTest(testDetails);
+                await _unitOfWork.testDetailsRepo.Save();
                 return RedirectToAction("Index", "TestDetails", new { id = testDetails.TestId });
-
-
             }
 
             return View(testDetails);
@@ -88,7 +63,7 @@ namespace SportsApp.Controllers
                 return NotFound();
             }
 
-            var testDetails = await _context.TestDetails.FindAsync(id);
+            var testDetails = await _unitOfWork.testDetailsRepo.GetTest(id);
             if (testDetails == null)
             {
                 return NotFound();
@@ -110,9 +85,9 @@ namespace SportsApp.Controllers
             {
                 try
                 {
-                    testDetails.MyProperty = this.checkFitness(testDetails.Distance);
-                    _context.Update(testDetails);
-                    await _context.SaveChangesAsync();
+
+                    _unitOfWork.testDetailsRepo.UpdateTest(testDetails);
+                    await _unitOfWork.save();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -138,8 +113,8 @@ namespace SportsApp.Controllers
                 return NotFound();
             }
 
-            var testDetails = await _context.TestDetails
-                .FirstOrDefaultAsync(m => m.AthleteId == id);
+            var testDetails = await _unitOfWork.testDetailsRepo.GetTest(id);
+                
             if (testDetails == null)
             {
                 return NotFound();
@@ -153,38 +128,25 @@ namespace SportsApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var testDetails = await _context.TestDetails.FindAsync(id);
-            _context.TestDetails.Remove(testDetails);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "TestDetails", new { id = testDetails.TestId });
+            TestDetails details = await _unitOfWork.testDetailsRepo.GetTest(id);
+            int testId = details.TestId;
+             _unitOfWork.testDetailsRepo.DeleteTest(id);
+             await _unitOfWork.save();
+            return RedirectToAction("Index", "TestDetails", new { id = testId});
         }
 
         private bool TestDetailsExists(int id)
         {
-            return _context.TestDetails.Any(e => e.AthleteId == id);
-        }
-
-        string checkFitness(decimal Distance)
-        {
-            string Fitness;
-
-            if (Distance <= 1000)
+            if(_unitOfWork.testDetailsRepo.GetTest(id) != null)
             {
-                Fitness = "Bellow Average";
-            }
-            else if (Distance > 1000 && Distance <= 2000)
-            {
-                Fitness = "Average";
-            }
-            else if (Distance > 2000 && Distance <= 3500)
-            {
-                Fitness = "Good";
+                return true;
             }
             else
             {
-                Fitness = "Very Good";
+                return false;
             }
-            return Fitness;
         }
+
+
     }
 }

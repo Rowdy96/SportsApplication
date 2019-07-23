@@ -69,12 +69,12 @@ using SportsApp.Models;
             WriteLiteral("\r\n<div class=\"col-md-3\"></div>\r\n<div class=\"col-md-6\">\r\n    <h2>CONFIRM</h2>\r\n    <h4>Do you want to delete this test?</h4>\r\n    <hr />\r\n    ");
             EndContext();
             BeginContext(215, 223, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cc1a0df9dad745daa24e419a8f2567cd", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bd639f2bc52245c5a6523d4f4d5ec886", async() => {
                 BeginContext(241, 10, true);
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(251, 40, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4433f6cef68945549ee28b5182ad9cd3", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4493083c3fa54d988b7c6c2a40626ce0", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -99,7 +99,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("\r\n        ");
                 EndContext();
                 BeginContext(301, 52, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9782db7c4a4f4d418ebfdeb91c8fbfc2", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1e725ea737c4a9f86febb8ef10ff74c", async() => {
                     BeginContext(347, 2, true);
                     WriteLiteral("No");
                     EndContext();

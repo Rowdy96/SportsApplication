@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using SportsApp.Models;
+using SportsApp.IRepositaries;
+using SportsApp.Repositaries;
 
 namespace SportsApp
 {
@@ -38,6 +40,9 @@ namespace SportsApp
 
             services.AddDbContext<SportsAppContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("SportsAppContext")));
+            services.AddTransient<ITestRepositaries, TestRepositaries>();
+            services.AddTransient<ITestDetailsRepo, TestDetailsRepo>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

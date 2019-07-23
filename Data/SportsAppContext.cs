@@ -9,6 +9,11 @@ namespace SportsApp.Models
 {
     public class SportsAppContext : DbContext
     {
+        public SportsAppContext()
+        {
+
+        }
+
         public SportsAppContext (DbContextOptions<SportsAppContext> options)
             : base(options)
         {
